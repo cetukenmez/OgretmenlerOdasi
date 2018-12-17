@@ -1,0 +1,36 @@
+﻿@using OOdasi.Entity
+@model  Ilanlar
+@{
+    ViewBag.Title = "IlanDuzenle";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+
+<h2>IlanDuzenle</h2>
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(t => t.İlanId)
+    @Html.HiddenFor(t => t.UserId)
+    @Html.HiddenFor(t => t.SehirId)
+    @Html.HiddenFor(t => t.SinifId)
+    @Html.HiddenFor(t => t.IlanRole)
+    @Html.HiddenFor(t => t.IlanTarih)
+    @Html.HiddenFor(t => t.BransId)
+    @Html.AntiForgeryToken()
+    <table class="table table-striped table-hover table-condensed table-responsive table-bordered">
+        <tr>
+            <td>En düşük Ücret : </td>
+            <td>@Html.TextBoxFor(t => t.minUcret, new { @class = "form-control", @style = "width:200px", required = "required", @type = "number" })</td>
+        </tr>
+        <tr>
+            <td>En Yüksek Ücret : </td>
+            <td>@Html.TextBoxFor(t => t.maxUcret, new { @class = "form-control", @style = "width:200px", required = "required", @type = "number" })</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Kaydet" class="btn btn-success" />
+                <a href="~/UserIlan/Ilanlarim" class="btn btn-danger"> İptal</a>
+            </td>
+        </tr>
+    </table>
+}

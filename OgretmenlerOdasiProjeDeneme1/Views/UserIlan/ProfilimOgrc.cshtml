@@ -1,0 +1,51 @@
+﻿@using OOdasi.Entity
+@model IEnumerable<UserInfo>
+@{
+    ViewBag.Title = "ProfilimOgrc";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+    <link href="~/Content/myStyle.css" rel="stylesheet" />
+}
+<link href="~/Content/myStyle.css" rel="stylesheet" />
+<h2>Profilim</h2>
+<br />
+@foreach (var item in Model)
+{
+    <a href="~/UserIlan/ProfilDuzenleOgrc/@item.UserId" class="btn btn-info"><i class="fa fa-pencil"></i> Profilimi Düzenle</a>
+
+    <center>
+        <div class="containe" style="width:150px">
+            <img src="~/Upload/@item.UserPhoto" class="img-circle image" style="width:120px;margin-bottom:15px" height="150" />
+            <div class="overlay">
+                <a href="~/UserIlan/FotoDuzenle/@item.UserId" class="text"><i class="fa fa-picture-o"></i> Fotoğrafımı Değiştir</a>
+            </div>
+        </div>
+    </center>
+    <table class="table table-hover table-condensed table-striped container">
+        <tr>
+            <td><strong>Adı Soyadı : </strong></td>
+            <td><b style="font-family:'Times New Roman', Times, serif">@Html.DisplayFor(m => item.UserName) @Html.DisplayFor(t => item.UserLastname)</b></td>
+        </tr>
+        <tr>
+            <td><strong>Doğum Tarihi : </strong></td>
+            <td><b style="font-family:'Times New Roman', Times, serif">@Html.DisplayFor(m => item.UserAge.Value).ToString().Substring(0, 10)</b></td>
+        </tr>
+        <tr>
+            <td><strong>Şu an Okduğunuz ya da En son mevzun olduğunuz okul  : </strong></td>
+            <td><i style="font-family:'Comic Sans MS'">@Html.DisplayFor(m => item.UserLise)</i></td>
+        </tr>
+        <tr>
+            <td><strong>Şehir : </strong></td>
+            <td><i style="font-family:'Comic Sans MS'">@Html.DisplayFor(m => item.Sehirler.SehirAdi)</i></td>
+        </tr>
+        <tr>
+            <td><strong>Email Adresi : </strong></td>
+            <td><i style="font-family:'Comic Sans MS'">@Html.DisplayFor(m => item.UserMail)</i></td>
+        </tr>
+        <tr></tr>
+    </table>
+    <div align="center">
+        <a href="~/Admin/Brand/Edit/@item.UserId" class="btn btn-danger"><i class="fa fa-warning"></i> Şifremi Değiştir</a>
+    </div>
+
+
+}

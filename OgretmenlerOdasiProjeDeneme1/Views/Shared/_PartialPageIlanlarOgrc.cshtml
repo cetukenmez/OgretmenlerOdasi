@@ -1,0 +1,124 @@
+﻿@using OOdasi.Entity
+@model IEnumerable<Ilanlar>
+<form method="get" action="~/Home/ListBySehBransOgrc">
+
+    <div>
+        <div style="float:left;margin-right:10px"> <h5>Lütfen Aramak İstediğiniz Özel Ders Arayan Öğrenci Kraterlerini Seçiniz : </h5></div>
+        <div style="float:left;margin-right:25px">
+            <select class="form-control list-group-item-info" data-val="true" id="sehid" name="sehid" style="width:200px">
+                <option value="null">--Lütfen İl Seçiniz--</option>
+                <option value="1">Adana</option>
+                <option value="2">Adıyaman</option>
+                <option value="3">Afyon</option>
+                <option value="4">Ağrı</option>
+                <option value="5">Amasya</option>
+                <option value="6">Ankara</option>
+                <option value="7">Antalya</option>
+                <option value="8">Artvin</option>
+                <option value="9">Aydın</option>
+                <option value="10">Balıkesir</option>
+                <option value="11">Bilecik</option>
+                <option value="12">Bing&#246;l</option>
+                <option value="13">Bitlis</option>
+                <option value="14">Bolu</option>
+                <option value="15">Burdur</option>
+                <option value="16">Bursa</option>
+                <option value="17">&#199;anakkale</option>
+                <option value="18">&#199;ankırı</option>
+                <option value="19">&#199;orum</option>
+                <option value="20">Denizli</option>
+                <option value="21">Diyarbakır</option>
+                <option value="22">Edirne</option>
+                <option value="23">Elazığ</option>
+                <option value="24">Erzincan</option>
+                <option value="25">Erzurum</option>
+                <option value="26">Eskişehir</option>
+                <option value="27">Gaziantep</option>
+                <option value="28">Giresun</option>
+                <option value="29">G&#252;m&#252;şhane</option>
+                <option value="30">Hakkari</option>
+                <option value="31">Hatay</option>
+                <option value="32">Isparta</option>
+                <option value="33">İ&#231;el</option>
+                <option value="34">İstanbul - Asya</option>
+                <option value="35">İstanbul - Avrupa</option>
+                <option value="36">İzmir</option>
+                <option value="37">Kars</option>
+                <option value="38">Kastamonu</option>
+                <option value="39">Kayseri</option>
+                <option value="40">Kırklareli</option>
+                <option value="41">Kırşehir</option>
+                <option value="42">Kocaeli</option>
+                <option value="43">Konya</option>
+                <option value="44">K&#252;tahya</option>
+                <option value="45">Malatya</option>
+                <option value="46">Manisa</option>
+                <option value="47">Kahramanmaraş</option>
+                <option value="48">Mardin</option>
+                <option value="49">Muğla</option>
+                <option value="50">Muş</option>
+                <option value="51">Nevşehir</option>
+                <option value="52">Niğde</option>
+                <option value="53">Ordu</option>
+                <option value="54">Rize</option>
+                <option value="55">Sakarya</option>
+                <option value="56">Samsun</option>
+                <option value="57">Siirt</option>
+                <option value="58">Sinop</option>
+                <option value="59">Sivas</option>
+                <option value="60">Tekirdağ</option>
+                <option value="61">Tokat</option>
+                <option value="62">Trabzon</option>
+                <option value="63">Tunceli</option>
+                <option value="64">Şanlıurfa</option>
+                <option value="65">Uşak</option>
+                <option value="66">Van</option>
+                <option value="67">Yozgat</option>
+                <option value="68">Zonguldak</option>
+                <option value="69">Aksaray</option>
+                <option value="70">Bayburt</option>
+                <option value="71">Karaman</option>
+                <option value="72">Kırıkkale</option>
+                <option value="73">Batman</option>
+                <option value="74">Şırnak</option>
+                <option value="75">Bartın</option>
+                <option value="76">Ardahan</option>
+                <option value="77">Iğdır</option>
+                <option value="78">Yalova</option>
+                <option value="79">Karab&#252;k</option>
+                <option value="80">Kilis</option>
+                <option value="81">Osmaniye</option>
+                <option value="82">D&#252;zce</option>
+                <option value="83">Kuzey Kıbrıs</option>
+            </select>
+        </div>
+        <div style="float:left;margin-right:25px">
+            <select class="form-control list-group-item-info" data-val="true" data-val-number="The field UserSehirId must be a number." id="bransid" name="bransid" style="width:200px">
+                <option value="null">--Lütfen Branş Seçiniz--</option>
+                <option value="1">Matematik</option>
+                <option value="2">Fizik</option>
+                <option value="3">Kimya</option>
+                <option value="4">Biyoloji</option>
+                <option value="5">Geometri</option>
+                <option value="6">Türkçe</option>
+                <option value="7">Tarih</option>
+                <option value="8">Coğrafya</option>
+                <option value="9">Edebiyat</option>
+                <option value="10">Fen Bilgisi</option>
+                <option value="11">İngilizce</option>
+                <option value="12">Almanca</option>
+                <option value="13">İtalyanca</option>
+                <option value="14">İspanyolca</option>
+                <option value="15">Müzik</option>
+                <option value="16">Satranç</option>
+                <option value="17">Briç</option>
+                <option value="1018">Farsça</option>
+            </select>
+        </div>
+        <div style="float:left;margin-right:25px">
+            <input type="submit" name="ListBySehBrans" value="Bul" class="btn btn-success" />
+        </div>
+    </div>
+    <br />
+</form>
+

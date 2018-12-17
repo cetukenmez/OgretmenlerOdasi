@@ -1,0 +1,45 @@
+﻿@using OOdasi.Entity
+@model  UserInfo
+@{
+    ViewBag.Title = "SifreDegistir";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<h2>FotoDuzenle</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(t => t.UserId)
+    @Html.HiddenFor(t => t.UserSehirId)
+    @Html.HiddenFor(t => t.ilanSayisi)
+    @Html.HiddenFor(t => t.RoleId)
+    @Html.HiddenFor(t => t.UserUyeDate)
+    @Html.HiddenFor(t => t.UserPhoto)
+    @Html.HiddenFor(t => t.UserName)
+    @Html.HiddenFor(t => t.UserLastname)
+    @Html.HiddenFor(t => t.UserMail)
+    @Html.HiddenFor(t => t.UserAge)
+    @Html.HiddenFor(t => t.UserBio)
+    @Html.HiddenFor(t => t.UserLise)
+    @Html.HiddenFor(t => t.UserUniversite)
+    @Html.HiddenFor(t => t.UserBolum)
+    @Html.HiddenFor(t => t.UserPhone)
+
+    @Html.AntiForgeryToken()
+    <div>
+        <label>@ViewBag.Mesaj</label>
+    </div>
+    <div>
+        Yeni Şifreniz : 
+           @Html.TextBoxFor(t => t.UserPass, new { @class = "form-control", @style = "width:200px", required = "required" })
+        
+
+
+        <input type="submit" value="Kaydet" class="btn btn-success" />
+
+
+        <a href="~/UserIlan/Profilim" class="btn btn-danger">İptal</a>
+    </div>
+
+
+}

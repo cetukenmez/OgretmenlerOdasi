@@ -1,0 +1,70 @@
+﻿@using OOdasi.Entity
+@model  UserInfo
+@{
+    ViewBag.Title = "ProfilDuzenle";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<h2>ProfilDuzenle</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(t => t.UserId)
+    @Html.HiddenFor(t => t.UserSehirId)
+    @Html.HiddenFor(t => t.UserPass)
+    @Html.HiddenFor(t => t.ilanSayisi)
+    @Html.HiddenFor(t => t.RoleId)
+    @Html.HiddenFor(t => t.UserUyeDate)
+    @Html.HiddenFor(t => t.UserPhoto)
+    @Html.AntiForgeryToken()
+    <div>
+        <label>@ViewBag.Mesaj</label>
+    </div>
+    <table class="table table-striped table-hover table-condensed table-responsive table-bordered">
+        <tr>
+            <td>Adınız : </td>
+            <td>@Html.TextBoxFor(t => t.UserName, new { @class = "form-control", @style = "width:200px", required = "required" })</td>
+        </tr>
+        <tr>
+            <td>Soyadınız : </td>
+            <td>@Html.TextBoxFor(t => t.UserLastname, new { @class = "form-control", @style = "width:200px", required = "required" })</td>
+        </tr>
+        <tr>
+            <td>Mail Adresiniz : </td>
+            <td>@Html.TextBoxFor(t => t.UserMail, new { @class = "form-control", @style = "width:200px", @type = "email", required = "required" })</td>
+        </tr>
+        <tr>
+            <td>Telefon Numaranız :</td>
+            <td>@Html.TextBoxFor(t => t.UserPhone, new { @class = "form-control", @style = "width:200px", required = "required", @type = "number" })</td>
+        </tr>
+        <tr>
+            <td>Doğum Tarihiniz : </td>
+            <td>@Html.TextBoxFor(t => t.UserAge, new { @class = "form-control", @style = "width:200px", required = "required"  })</td>
+        </tr>
+        <tr>
+            <td>Mevzun Olduğunuz Lise : </td>
+            <td>@Html.TextBoxFor(t => t.UserLise, new { @class = "form-control", @style = "width:200px", required = "required" })</td>
+        </tr>
+        <tr>
+            <td>Üniversiteniz : </td>
+            <td>@Html.TextBoxFor(t => t.UserUniversite, new { @class = "form-control", @style = "width:200px", required = "required" })</td>
+        </tr>
+        <tr>
+            <td>Universitede Okuduğunuz Bölüm : </td>
+            <td>@Html.TextBoxFor(t => t.UserBolum, new { @class = "form-control", @style = "width:200px", required = "required" })</td>
+        </tr>
+        <tr>
+            <td>Lütfen kendinizden ve ilgi alanlarınızdan bahsedin : </td>
+            <td>@Html.TextAreaFor(t => t.UserBio, new { @class = "form-control", @style = "width:200px", @required = "required" })</td>
+            <div>
+                @ViewBag.mes
+            </div>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Kaydet" class="btn btn-success" />
+                <a href="~/UserIlan/Profilim" class="btn btn-danger"> İptal</a>
+            </td>
+        </tr>
+    </table>
+}

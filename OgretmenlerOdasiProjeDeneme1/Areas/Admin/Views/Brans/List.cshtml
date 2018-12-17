@@ -1,0 +1,21 @@
+﻿@using OOdasi.Entity;
+@model IEnumerable<Branslar>
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>List</h2>
+
+<table class="table table-condensed table-hover table-striped" border="1">
+    <tr class="active">
+        <th>@Html.DisplayNameFor(t => t.BransAdi)</th>
+
+    </tr>
+    @foreach (Branslar item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(t => item.BransAdi)</td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,57 @@
+﻿@using OOdasi.Entity
+@using GridMvc.Html
+@model IEnumerable<Ilanlar>
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>İlanlar</h2>
+
+@Html.Grid(Model).Columns(column =>
+{
+    column.Add(t => t.Branslar.BransAdi).Titled("Ders Adı").SetWidth(30);
+    column.Add(t => t.Sehirler.SehirAdi).Titled("Şehir Adı").SetWidth(30);
+    column.Add(t => t.Siniflar.SinifAdi).Titled("Ders Verdiği Sınıf").SetWidth(30);
+    column.Add(t => t.UserInfo.UserName).Titled("Öğretmenin Adı").SetWidth(30);
+    column.Add(t => t.UserInfo.UserLastname).Titled("Öğretmenin Soyadı").SetWidth(30);
+    column.Add(t => t.minUcret).Titled(" min Ücret").Format("{0:C}").SetWidth(30);
+    column.Add(t => t.maxUcret).Titled(" max Ücret").Format("{0:C}").SetWidth(30);
+    column.Add(t => t.IlanTarih).Titled("İlan Tarihi").SetWidth(30);
+    column.Add()
+    .Encoded(false)
+    .Sanitized(false)
+    .SetWidth(10)
+    .RenderValueAs(o => Html.ActionLink("Delete", "Delete", "Ilan", new { id = o.İlanId }, new { @class = "btn btn-danger" }));
+}).WithPaging(12).Sortable(true).WithMultipleFilters().Filterable(true)
+
+
+
+
+@*<table class="table table-condensed table-hover table-striped">
+        <tr class="active">
+            <th>Ders Adı</th>
+            <th>Adı Soyadı</th>
+            <th>Şehir Adı</th>
+            <th>Ders Verdiği Sınıf</th>
+            <th>Ücret</th>
+            <th>İlan Tarihi</th>
+            <th>Delete</th>
+        </tr>
+        @foreach (Ilanlar item in Model)
+        {
+        <tr>
+            <td>@Html.DisplayFor(t => item.Branslar.BransAdi)</td>
+            <td>@Html.DisplayFor(t => item.UserInfo.UserName) @Html.DisplayFor(t => item.UserInfo.UserLastname) </td>
+            <td>@Html.DisplayFor(t => item.Sehirler.SehirAdi)</td>
+            <td>@Html.DisplayFor(t => item.Siniflar.SinifAdi)</td>
+            <td>@Html.DisplayFor(t => item.minUcret) TL</td>
+            <td>@Html.DisplayFor(t => item.IlanTarih)</td>
+            <td>
+
+                @Html.ActionLink("Delete", "Delete", new { @id = item.İlanId }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+        }
+    </table>*@
+

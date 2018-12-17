@@ -1,0 +1,60 @@
+﻿@using OOdasi.Entity
+@using OgretmenlerOdasiProjeDeneme1.Areas.Admin.Models.ViewModel
+@model IlanViewModel
+@{
+    ViewBag.Title = "AddIlanUser";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<h2>İlan Vermek İçin Doğru Yerdesiniz..</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div>
+        <label>@ViewBag.Mesaj</label>
+    </div>
+    <table class="table table-striped">
+        <tr>
+            @Html.HiddenFor(t => t.Ilanlar.UserId)
+        </tr>
+        <tr>
+            <td>Ders Vereceğiniz Branş :</td>
+            <td>@Html.DropDownListFor(t => t.Ilanlar.BransId, Model.bransList, new { @class = "form-control", @style = "width:200px" })</td>
+        </tr>
+        <tr>
+            <td>Hangi Şehir</td>
+            <td>@Html.DropDownListFor(t => t.Ilanlar.SehirId, Model.sehirList, new { @class = "form-control", @style = "width:200px" })</td>
+        </tr>
+        <tr>
+            <td>Ders Vereceği Sınıf</td>
+            <td>@Html.DropDownListFor(t => t.Ilanlar.SinifId, Model.sinifList, new { @class = "form-control", @style = "width:200px" })</td>
+        </tr>
+        <tr>
+            <td>En düşük Ücret</td>
+            <td>@Html.TextBoxFor(t => t.Ilanlar.minUcret, new { @class = "form-control", @style = "width:200px", required = "required" })</td>
+        </tr>
+        <tr>
+            <td>En yüksek ücret</td>
+            <td>@Html.TextBoxFor(t => t.Ilanlar.maxUcret, new { @class = "form-control", @style = "width:200px", required = "required" })</td>
+        </tr>
+
+        <tr class="text-danger">
+
+            <td><strong>Öğrenci misiniz Öğretmen mi ?</strong></td>
+
+            <td class="text-primary">
+                @Html.RadioButtonFor(m => m.Ilanlar.IlanRole, 2, new { Checked = "checked" })<b>Öğretmenim</b>  <br />
+                @Html.RadioButtonFor(m => m.Ilanlar.IlanRole, 3) <b>Öğrenciyim</b>
+                @Html.ValidationMessageFor(m => m.Ilanlar.IlanRole, "", new { @class = "error" })
+            </td>
+
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Kaydet" class="btn btn-success" />
+                <a href="~/UserIlan/Profilim" class="btn btn-danger"> İptal</a>
+            </td>
+        </tr>
+    </table>
+}

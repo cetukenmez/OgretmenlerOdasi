@@ -1,0 +1,620 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0A9A8BC0-AFAD-4288-8AC1-47D67D865A58}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OgretmenlerOdasiProjeDeneme1</RootNamespace>
+    <AssemblyName>OgretmenlerOdasiProjeDeneme1</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="GridMvc, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Grid.Mvc.3.0.0\lib\net40\GridMvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.2\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Gridmvc.css" />
+    <Content Include="Content\Login_v2\css\main.css" />
+    <Content Include="Content\Login_v2\css\util.css" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="Content\Login_v2\fonts\iconic\css\material-design-iconic-font.css" />
+    <Content Include="Content\Login_v2\fonts\iconic\css\material-design-iconic-font.min.css" />
+    <Content Include="Content\Login_v2\fonts\iconic\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="Content\Login_v2\images\icons\favicon.ico" />
+    <Content Include="Content\Login_v2\index.html" />
+    <Content Include="Content\Login_v2\js\main.js" />
+    <Content Include="Content\Login_v2\vendor\animate\animate.css" />
+    <Content Include="Content\Login_v2\vendor\animsition\css\animsition.css" />
+    <Content Include="Content\Login_v2\vendor\animsition\css\animsition.min.css" />
+    <Content Include="Content\Login_v2\vendor\animsition\js\animsition.js" />
+    <Content Include="Content\Login_v2\vendor\animsition\js\animsition.min.js" />
+    <Content Include="Content\Login_v2\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Content\Login_v2\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Content\Login_v2\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Content\Login_v2\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\Login_v2\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\Login_v2\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\Login_v2\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\Login_v2\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\Login_v2\vendor\bootstrap\js\popper.js" />
+    <Content Include="Content\Login_v2\vendor\bootstrap\js\popper.min.js" />
+    <Content Include="Content\Login_v2\vendor\bootstrap\js\tooltip.js" />
+    <Content Include="Content\Login_v2\vendor\countdowntime\countdowntime.js" />
+    <Content Include="Content\Login_v2\vendor\css-hamburgers\hamburgers.css" />
+    <Content Include="Content\Login_v2\vendor\css-hamburgers\hamburgers.min.css" />
+    <Content Include="Content\Login_v2\vendor\daterangepicker\daterangepicker.css" />
+    <Content Include="Content\Login_v2\vendor\daterangepicker\daterangepicker.js" />
+    <Content Include="Content\Login_v2\vendor\daterangepicker\moment.js" />
+    <Content Include="Content\Login_v2\vendor\daterangepicker\moment.min.js" />
+    <Content Include="Content\Login_v2\vendor\jquery\jquery-3.2.1.min.js" />
+    <Content Include="Content\Login_v2\vendor\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="Content\Login_v2\vendor\perfect-scrollbar\perfect-scrollbar.min.js" />
+    <Content Include="Content\Login_v2\vendor\select2\select2.css" />
+    <Content Include="Content\Login_v2\vendor\select2\select2.js" />
+    <Content Include="Content\Login_v2\vendor\select2\select2.min.css" />
+    <Content Include="Content\Login_v2\vendor\select2\select2.min.js" />
+    <Content Include="Content\myStyle.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\blank-page.html" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\bootstrap-elements.html" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\bootstrap-grid.html" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\charts.html" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\css\bootstrap-rtl.css" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\css\bootstrap-rtl.min.css" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\css\bootstrap.css" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\css\bootstrap.min.css" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\css\plugins\morris.css" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\css\sb-admin-rtl.css" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\css\sb-admin.css" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\forms.html" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\index-rtl.html" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\index.html" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\js\bootstrap.js" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\js\bootstrap.min.js" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\js\jquery.js" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\js\plugins\flot\excanvas.min.js" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\js\plugins\flot\flot-data.js" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\js\plugins\flot\jquery.flot.js" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\js\plugins\flot\jquery.flot.pie.js" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\js\plugins\flot\jquery.flot.resize.js" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\js\plugins\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\js\plugins\morris\morris-data.js" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\js\plugins\morris\morris.js" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\js\plugins\morris\morris.min.js" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\js\plugins\morris\raphael.min.js" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\tables.html" />
+    <Content Include="Content\web\blank.html" />
+    <Content Include="Content\web\buttons.html" />
+    <Content Include="Content\web\calendar.html" />
+    <Content Include="Content\web\charts.html" />
+    <Content Include="Content\web\css\aaf5c053.proton.css" />
+    <Content Include="Content\web\css\basictable.css" />
+    <Content Include="Content\web\css\bootstrap.css" />
+    <Content Include="Content\web\css\examples.css" />
+    <Content Include="Content\web\css\font-awesome.css" />
+    <Content Include="Content\web\css\font.css" />
+    <Content Include="Content\web\css\ladda.min.css" />
+    <Content Include="Content\web\css\lsb.css" />
+    <Content Include="Content\web\css\monthly.css" />
+    <Content Include="Content\web\css\morris.css" />
+    <Content Include="Content\web\css\style.css" />
+    <Content Include="Content\web\css\table-style.css" />
+    <Content Include="Content\web\css\typo.css" />
+    <Content Include="Content\web\error.html" />
+    <Content Include="Content\web\faq.html" />
+    <Content Include="Content\web\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\web\gallery.html" />
+    <Content Include="Content\web\grids.html" />
+    <Content Include="Content\web\images\1.png" />
+    <Content Include="Content\web\images\2.png" />
+    <Content Include="Content\web\images\3.png" />
+    <Content Include="Content\web\images\error-bg.jpg" />
+    <Content Include="Content\web\images\error.png" />
+    <Content Include="Content\web\images\g1.jpg" />
+    <Content Include="Content\web\images\g2.jpg" />
+    <Content Include="Content\web\images\g3.jpg" />
+    <Content Include="Content\web\images\g4.jpg" />
+    <Content Include="Content\web\images\g5.jpg" />
+    <Content Include="Content\web\images\g6.jpg" />
+    <Content Include="Content\web\images\logo.png" />
+    <Content Include="Content\web\images\logo1.png" />
+    <Content Include="Content\web\images\s1.jpg" />
+    <Content Include="Content\web\index.html" />
+    <Content Include="Content\web\inputs.html" />
+    <Content Include="Content\web\js\bootstrap.js" />
+    <Content Include="Content\web\js\gmaps.js" />
+    <Content Include="Content\web\js\graph.js" />
+    <Content Include="Content\web\js\jquery-ui.min.js" />
+    <Content Include="Content\web\js\jquery.basictable.min.js" />
+    <Content Include="Content\web\js\jquery.cookie.js" />
+    <Content Include="Content\web\js\jquery.countdown.min.js" />
+    <Content Include="Content\web\js\jquery.geocomplete.js" />
+    <Content Include="Content\web\js\jquery.min.js" />
+    <Content Include="Content\web\js\jquery.vmap.js" />
+    <Content Include="Content\web\js\jquery.vmap.sampledata.js" />
+    <Content Include="Content\web\js\jquery.vmap.world.js" />
+    <Content Include="Content\web\js\jquery1.9.1.min.js" />
+    <Content Include="Content\web\js\jquery2.0.3.min.js" />
+    <Content Include="Content\web\js\logger.js" />
+    <Content Include="Content\web\js\lsb.js" />
+    <Content Include="Content\web\js\modernizr.js" />
+    <Content Include="Content\web\js\monthly.js" />
+    <Content Include="Content\web\js\morris.js" />
+    <Content Include="Content\web\js\proton.js" />
+    <Content Include="Content\web\js\raphael-min.js" />
+    <Content Include="Content\web\js\screenfull.js" />
+    <Content Include="Content\web\js\skycons.js" />
+    <Content Include="Content\web\js\valida.2.1.6.min.js" />
+    <Content Include="Content\web\js\validator.min.js" />
+    <Content Include="Content\web\login.html" />
+    <Content Include="Content\web\maps.html" />
+    <Content Include="Content\web\signup.html" />
+    <Content Include="Content\web\tables.html" />
+    <Content Include="Content\web\typography.html" />
+    <Content Include="Content\web\validation.html" />
+    <Content Include="Content\web\w3layouts-License.txt" />
+    <Content Include="Global.asax" />
+    <Content Include="img\Login_v2\css\main.css" />
+    <Content Include="img\Login_v2\css\util.css" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="img\Login_v2\fonts\iconic\css\material-design-iconic-font.css" />
+    <Content Include="img\Login_v2\fonts\iconic\css\material-design-iconic-font.min.css" />
+    <Content Include="img\Login_v2\fonts\iconic\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="img\Login_v2\images\icons\favicon.ico" />
+    <Content Include="img\Login_v2\index.html" />
+    <Content Include="img\Login_v2\js\main.js" />
+    <Content Include="img\Login_v2\vendor\animate\animate.css" />
+    <Content Include="img\Login_v2\vendor\animsition\css\animsition.css" />
+    <Content Include="img\Login_v2\vendor\animsition\css\animsition.min.css" />
+    <Content Include="img\Login_v2\vendor\animsition\js\animsition.js" />
+    <Content Include="img\Login_v2\vendor\animsition\js\animsition.min.js" />
+    <Content Include="img\Login_v2\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="img\Login_v2\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="img\Login_v2\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="img\Login_v2\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="img\Login_v2\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="img\Login_v2\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="img\Login_v2\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="img\Login_v2\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="img\Login_v2\vendor\bootstrap\js\popper.js" />
+    <Content Include="img\Login_v2\vendor\bootstrap\js\popper.min.js" />
+    <Content Include="img\Login_v2\vendor\bootstrap\js\tooltip.js" />
+    <Content Include="img\Login_v2\vendor\countdowntime\countdowntime.js" />
+    <Content Include="img\Login_v2\vendor\css-hamburgers\hamburgers.css" />
+    <Content Include="img\Login_v2\vendor\css-hamburgers\hamburgers.min.css" />
+    <Content Include="img\Login_v2\vendor\daterangepicker\daterangepicker.css" />
+    <Content Include="img\Login_v2\vendor\daterangepicker\daterangepicker.js" />
+    <Content Include="img\Login_v2\vendor\daterangepicker\moment.js" />
+    <Content Include="img\Login_v2\vendor\daterangepicker\moment.min.js" />
+    <Content Include="img\Login_v2\vendor\jquery\jquery-3.2.1.min.js" />
+    <Content Include="img\Login_v2\vendor\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="img\Login_v2\vendor\perfect-scrollbar\perfect-scrollbar.min.js" />
+    <Content Include="img\Login_v2\vendor\select2\select2.css" />
+    <Content Include="img\Login_v2\vendor\select2\select2.js" />
+    <Content Include="img\Login_v2\vendor\select2\select2.min.css" />
+    <Content Include="img\Login_v2\vendor\select2\select2.min.js" />
+    <Content Include="img\pb.jpg" />
+    <Content Include="img\profil.jpg" />
+    <Content Include="Scripts\gridmvc.js" />
+    <Content Include="Scripts\gridmvc.lang.ru.js" />
+    <Content Include="Scripts\gridmvc.min.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\BransController.cs" />
+    <Compile Include="Areas\Admin\Controllers\IlanController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
+    <Compile Include="Areas\Admin\Models\ResultModel\InstanceResult.cs" />
+    <Compile Include="Areas\Admin\Models\ViewModel\IlanViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\ViewModel\UserViewModel.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserIlanController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoginControl.cs" />
+    <Compile Include="Models\VM\LoginVM.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\font-awesome\less\core.less" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\font-awesome\less\fixed-width.less" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\font-awesome\less\font-awesome.less" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\font-awesome\less\icons.less" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\font-awesome\less\larger.less" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\font-awesome\less\list.less" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\font-awesome\less\mixins.less" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\font-awesome\less\path.less" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\font-awesome\less\spinning.less" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\font-awesome\less\stacked.less" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\font-awesome\less\variables.less" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\font-awesome\scss\_core.scss" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\font-awesome\scss\_icons.scss" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\font-awesome\scss\_larger.scss" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\font-awesome\scss\_list.scss" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\font-awesome\scss\_mixins.scss" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\font-awesome\scss\_path.scss" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\font-awesome\scss\_spinning.scss" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\font-awesome\scss\_stacked.scss" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\font-awesome\scss\_variables.scss" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\LICENSE" />
+    <Content Include="Content\startbootstrap-sb-admin-gh-pages\README.md" />
+    <Content Include="Areas\Admin\Views\Ilan\List.cshtml" />
+    <Content Include="Areas\Admin\Views\Ilan\AddIlan.cshtml" />
+    <Content Include="Grid.mvc.readme" />
+    <Content Include="Areas\Admin\Views\User\List.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Brans\List.cshtml" />
+    <Content Include="Areas\Admin\Views\Brans\AddBrans.cshtml" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\less\core.less" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\less\list.less" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\less\path.less" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="Content\Login_v2\fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="Content\Login_v2\fonts\iconic\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="Content\Login_v2\fonts\iconic\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="Content\Login_v2\fonts\iconic\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="Content\Login_v2\fonts\iconic\fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="Content\Login_v2\fonts\poppins\Poppins-Black.ttf" />
+    <Content Include="Content\Login_v2\fonts\poppins\Poppins-BlackItalic.ttf" />
+    <Content Include="Content\Login_v2\fonts\poppins\Poppins-Bold.ttf" />
+    <Content Include="Content\Login_v2\fonts\poppins\Poppins-BoldItalic.ttf" />
+    <Content Include="Content\Login_v2\fonts\poppins\Poppins-ExtraBold.ttf" />
+    <Content Include="Content\Login_v2\fonts\poppins\Poppins-ExtraBoldItalic.ttf" />
+    <Content Include="Content\Login_v2\fonts\poppins\Poppins-ExtraLight.ttf" />
+    <Content Include="Content\Login_v2\fonts\poppins\Poppins-ExtraLightItalic.ttf" />
+    <Content Include="Content\Login_v2\fonts\poppins\Poppins-Italic.ttf" />
+    <Content Include="Content\Login_v2\fonts\poppins\Poppins-Light.ttf" />
+    <Content Include="Content\Login_v2\fonts\poppins\Poppins-LightItalic.ttf" />
+    <Content Include="Content\Login_v2\fonts\poppins\Poppins-Medium.ttf" />
+    <Content Include="Content\Login_v2\fonts\poppins\Poppins-MediumItalic.ttf" />
+    <Content Include="Content\Login_v2\fonts\poppins\Poppins-Regular.ttf" />
+    <Content Include="Content\Login_v2\fonts\poppins\Poppins-SemiBold.ttf" />
+    <Content Include="Content\Login_v2\fonts\poppins\Poppins-SemiBoldItalic.ttf" />
+    <Content Include="Content\Login_v2\fonts\poppins\Poppins-Thin.ttf" />
+    <Content Include="Content\Login_v2\fonts\poppins\Poppins-ThinItalic.ttf" />
+    <Content Include="Content\Login_v2\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Content\Login_v2\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\Login_v2\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\Login_v2\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\Login_v2\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Content\Login_v2\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Content\web\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\web\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\web\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\web\fonts\FontAwesome.otf" />
+    <Content Include="Content\web\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\web\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\less\core.less" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\less\list.less" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\less\path.less" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="img\Login_v2\fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="img\Login_v2\fonts\iconic\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="img\Login_v2\fonts\iconic\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="img\Login_v2\fonts\iconic\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="img\Login_v2\fonts\iconic\fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="img\Login_v2\fonts\poppins\Poppins-Black.ttf" />
+    <Content Include="img\Login_v2\fonts\poppins\Poppins-BlackItalic.ttf" />
+    <Content Include="img\Login_v2\fonts\poppins\Poppins-Bold.ttf" />
+    <Content Include="img\Login_v2\fonts\poppins\Poppins-BoldItalic.ttf" />
+    <Content Include="img\Login_v2\fonts\poppins\Poppins-ExtraBold.ttf" />
+    <Content Include="img\Login_v2\fonts\poppins\Poppins-ExtraBoldItalic.ttf" />
+    <Content Include="img\Login_v2\fonts\poppins\Poppins-ExtraLight.ttf" />
+    <Content Include="img\Login_v2\fonts\poppins\Poppins-ExtraLightItalic.ttf" />
+    <Content Include="img\Login_v2\fonts\poppins\Poppins-Italic.ttf" />
+    <Content Include="img\Login_v2\fonts\poppins\Poppins-Light.ttf" />
+    <Content Include="img\Login_v2\fonts\poppins\Poppins-LightItalic.ttf" />
+    <Content Include="img\Login_v2\fonts\poppins\Poppins-Medium.ttf" />
+    <Content Include="img\Login_v2\fonts\poppins\Poppins-MediumItalic.ttf" />
+    <Content Include="img\Login_v2\fonts\poppins\Poppins-Regular.ttf" />
+    <Content Include="img\Login_v2\fonts\poppins\Poppins-SemiBold.ttf" />
+    <Content Include="img\Login_v2\fonts\poppins\Poppins-SemiBoldItalic.ttf" />
+    <Content Include="img\Login_v2\fonts\poppins\Poppins-Thin.ttf" />
+    <Content Include="img\Login_v2\fonts\poppins\Poppins-ThinItalic.ttf" />
+    <Content Include="img\Login_v2\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="img\Login_v2\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="img\Login_v2\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="img\Login_v2\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="img\Login_v2\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="img\Login_v2\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Views\Shared\_GridPager.cshtml" />
+    <Content Include="Views\Shared\_Grid.cshtml" />
+    <Content Include="Views\Shared\_LayoutLogOut.cshtml" />
+    <Content Include="Views\Home\ListOgretmen.cshtml" />
+    <Content Include="Views\Home\ListOgrenci.cshtml" />
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\ListOgrenciLogin.cshtml" />
+    <Content Include="Views\Account\UserUyeOl.cshtml" />
+    <Content Include="Views\Account\UserUyeOlogrenci.cshtml" />
+    <Content Include="Views\UserIlan\Ilanlarim.cshtml" />
+    <Content Include="Views\UserIlan\AddIlanUser.cshtml" />
+    <Content Include="Views\UserIlan\Profilim.cshtml" />
+    <Content Include="Views\UserIlan\ProfilDuzenle.cshtml" />
+    <Content Include="Views\UserIlan\FotoDuzenle.cshtml" />
+    <Content Include="Views\UserIlan\IlanDuzenle.cshtml" />
+    <Content Include="Views\Home\ProfiliGoruntule.cshtml" />
+    <Content Include="Views\Shared\_LayoutEskiLogOut.cshtml" />
+    <Content Include="Views\Shared\_LayoutEskiLogin.cshtml" />
+    <Content Include="Views\UserIlan\ProfilimOgrc.cshtml" />
+    <Content Include="Views\UserIlan\ProfilDuzenleOgrc.cshtml" />
+    <Content Include="Views\Shared\_PartialPageIlanlar.cshtml" />
+    <Content Include="Views\Home\ListBySehBrans.cshtml" />
+    <Content Include="Views\Home\ListBySehBransOgrc.cshtml" />
+    <Content Include="Views\Shared\_PartialPageIlanlarOgrc.cshtml" />
+    <Content Include="Views\Home\Iletisim.cshtml" />
+    <Content Include="Views\Shared\_Partialiletisim.cshtml" />
+    <Content Include="Views\Home\Ogretmenlerodasi.cshtml" />
+    <Content Include="Views\UserIlan\SifreDegistir.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Upload\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OOdasi.Common\OOdasi.Common.csproj">
+      <Project>{91363634-5c5c-4bcf-852d-db6dc7592bc7}</Project>
+      <Name>OOdasi.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OOdasi.Entity\OOdasi.Entity.csproj">
+      <Project>{50170bbe-b595-4ab2-b776-0a5dcb7b73df}</Project>
+      <Name>OOdasi.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OOdasi.Repository\OOdasi.Repository.csproj">
+      <Project>{b3a71967-b373-463f-bbba-a25088767ce8}</Project>
+      <Name>OOdasi.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49732</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49732/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

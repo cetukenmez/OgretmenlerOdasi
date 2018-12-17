@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Özel Dersin özel adresi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Colored Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+
+    <link rel="stylesheet" type="text/css" href="~/Content/Login_v2/fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login_v2/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login_v2/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login_v2/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login_v2/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login_v2/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/Login_v2/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Login_v2/css/main.css">
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- bootstrap-css -->
+    <link rel="stylesheet" href="~/Content/web/css/bootstrap.css">
+    <!-- //bootstrap-css -->
+    <!-- Custom CSS -->
+    <link href="~/Content/web/css/style.css" rel='stylesheet' type='text/css' />
+    <!-- font CSS -->
+    <link href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <!-- font-awesome icons -->
+    <link rel="stylesheet" href="~/Content/web/css/font.css" type="text/css" />
+    <link href="~/Content/web/css/font-awesome.css" rel="stylesheet">
+    <!-- //font-awesome icons -->
+    <script src="~/Content/web/js/jquery2.0.3.min.js"></script>
+    <script src="~/Content/web/js/modernizr.js"></script>
+    <script src="~/Content/web/js/jquery.cookie.js"></script>
+    <script src="~/Content/web/js/screenfull.js"></script>
+    <script>
+        $(function () {
+            $('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
+
+            if (!screenfull.enabled) {
+                return false;
+            }
+
+            $('#toggle').click(function () {
+                screenfull.toggle($('#container')[0]);
+            });
+        });
+    </script>
+    <!-- charts -->
+    <script src="~/Content/web/js/raphael-min.js"></script>
+    <script src="~/Content/web/js/morris.js"></script>
+    <link rel="stylesheet" href="~/Content/web/css/morris.css">
+    <!-- //charts -->
+    <!--skycons-icons-->
+    <script src="~/Content/web/js/skycons.js"></script>
+    <!--//skycons-icons-->
+</head>
+<body class="dashboard-page">
+    <script>
+        var theme = $.cookie('protonTheme') || 'default';
+        $('body').removeClass(function (index, css) {
+            return (css.match(/\btheme-\S+/g) || []).join(' ');
+        });
+        if (theme !== 'default') $('body').addClass(theme);
+    </script>
+    <nav class="main-menu">
+        <ul>
+            <li>
+                <a href="~/Home/ListOgretmen">
+                    <i class="fa fa-home nav_icon"></i>
+                    <span class="nav-text">Ogretmenlerodasi.com
+                    </span>
+                </a>
+            </li>
+            <li class="has-subnav">
+                <a href="javascript:;">
+                    <i class="fa fa-list-ul" aria-hidden="true"></i>
+                    <span class="nav-text">
+                        İlanlar
+                    </span>
+                    <i class="icon-angle-right"></i><i class="icon-angle-down"></i>
+                </a>
+                <ul>
+                    <li>
+                        <a class="subnav-text" href="~/Home/ListOgretmen">
+                            Özel Ders Veren Öğretmenler
+                        </a>
+                    </li>
+                    <li>
+                        <a class="subnav-text" href="~/Home/ListOgrenci">
+                            Özel Ders Arayan Öğrenciler
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="~/Home/Ogretmenlerodasi">
+                    <i class="icon-font nav-icon"></i>
+                    <span class="nav-text">
+                        Öğretmenler Odası
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <section class="wrapper scrollable">
+        <nav class="user-menu">
+            <a href="javascript:;" class="main-menu-access">
+                <i class="icon-proton-logo"></i>
+                <i class="icon-reorder"></i>
+            </a>
+        </nav>
+        <section class="title-bar">
+            <div class="logo">
+                <h4><a href="~/Home/ListOgretmen"><img src="~/img/pb.jpg" alt="" height="30" /> OgretmenlerOdasi.com</a></h4>
+            </div>
+            @*<div class="w3l_search">
+                <form action="#" method="post">
+                    <input type="text" name="search" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}" required="">
+                    <button class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </form>
+            </div>*@
+            <div class="header-right">
+                <div class="profile_details_left">
+                    <div class="header-right-left">
+                        <!--notifications of menu start -->
+                        <ul>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle btn btn-info" data-toggle="dropdown"><i class="fa fa-user"></i> Üye Ol <b class="caret"></b></a>
+                                <ul class="dropdown-menu" style="width:250px">
+                                    <li>
+                                        <a href="/Account/UserUyeOl"><i class="fa fa-fw fa-book"></i> Öğretmen Üyeliği</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Account/UserUyeOlogrenci"><i class="fa fa-fw fa-pencil"></i> Öğrenci Üyeliği</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="header-right-left">&nbsp;&nbsp;</div>
+                    <div class="header-right-left">
+                        <ul>
+                            <li>
+                                <a href="/Account/Login" class=" btn btn-info"><i class="fa fa-sign-in"></i> Üye Girişi</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="full-screen">
+                        <section class="full-top">
+                            <button id="toggle"><i class="fa fa-arrows-alt" aria-hidden="true"></i></button>
+                        </section>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </section>
+        <div class="container-fluid" style="margin-top:15px">
+            @RenderBody()
+        </div>
+        <!-- footer -->
+        @*<div class="footer fixed-bottom" style="height:1em !important" !important>
+            <p>© 2016 Colored . All Rights Reserved . Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+        </div>*@
+        <!-- //footer -->
+    </section>
+    <script src="~/Content/web/js/bootstrap.js"></script>
+    <script src="~/Content/web/js/proton.js"></script>
+</body>
+</html>
+

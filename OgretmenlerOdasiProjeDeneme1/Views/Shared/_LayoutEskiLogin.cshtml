@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Ozel Dersin Adresi</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/startbootstrap-sb-admin-gh-pages/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/Content/startbootstrap-sb-admin-gh-pages/css/sb-admin.css" rel="stylesheet">
+    <!-- Morris Charts CSS -->
+    <link href="~/Content/startbootstrap-sb-admin-gh-pages/css/plugins/morris.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="~/Content/startbootstrap-sb-admin-gh-pages/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/Gridmvc.css" rel="stylesheet" />
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="~/Admin/Ilan/List"> OgretmenlerOdasi.com </a>
+            </div>
+            <ul class="nav navbar-right top-nav">
+                <li>
+                    <a href="/Account/LogOut"><i class="fa fa-power-off"></i> Çıkış !</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> @User.Identity.Name <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="/UserIlan/Profilim"><i class="fa fa-fw fa-user"></i> Profilim</a>
+                        </li>
+                        <li>
+                            <a href="/UserIlan/Ilanlarim"><i class="fa fa-fw fa-list"></i> İlanlarım</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Mesaj Kutusu</a>
+                        </li>
+                        <li>
+                            <a href="/UserIlan/AddIlanUser"><i class="fa fa-fw fa-plus-circle"></i> İlan Ver</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="/Account/LogOut"><i class="fa fa-fw fa-power-off"></i> Çıkış !</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- Top Menu Items -->
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#ilan"><i class="glyphicon glyphicon-list-alt"></i> İlanlar <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="ilan" class="collapse">
+                            <li>
+                                <a href="~/Home/Index">Özel Ders Veren Öğretmenler</a>
+                            </li>
+                            <li>
+                                <a href="~/Home/ListOgrenciLogin">Özel Ders Arayan Öğrenciler</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#user"><i class="glyphicon glyphicon-user"></i> Öğretmenler Odası <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="user" class="collapse">
+                            <li>
+                                <a href="~/Admin/User/List">Öğretmenleri Göster</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+        @*<div class="modal fade" id="Login" tabindex="-1" role="dialog" aria-labelledby="">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Kullanıcı Girişi</h4>
+                        </div>
+                        <form method="post" action="/Home/ListOgretmen" role="form">
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label>
+                                        Mail Adresiniz
+                                    </label>
+                                    <input type="email" name="UserMail" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Kullanıcı şifreniz</label>
+                                    <input type="password" name="UserPass" class="form-control" />
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-success">Giriş</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Kapat</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>*@
+        <div id="page-wrapper" style="background-color:#222">
+            <div class=" container-fluid">
+                @RenderBody()
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="~/Content/startbootstrap-sb-admin-gh-pages/js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Content/startbootstrap-sb-admin-gh-pages/js/bootstrap.min.js"></script>
+    <!-- Morris Charts JavaScript -->
+    <script src="~/Content/startbootstrap-sb-admin-gh-pages/js/plugins/morris/raphael.min.js"></script>
+    <script src="~/Content/startbootstrap-sb-admin-gh-pages/js/plugins/morris/morris.min.js"></script>
+    <script src="~/Content/startbootstrap-sb-admin-gh-pages/js/plugins/morris/morris-data.js"></script>
+    <script src="~/Scripts/gridmvc.min.js"></script>
+</body>
+</html>

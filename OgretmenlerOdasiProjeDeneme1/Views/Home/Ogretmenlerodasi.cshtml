@@ -1,0 +1,65 @@
+﻿@using OOdasi.Repository
+@using PagedList.Mvc
+@using OOdasi.Entity
+@using GridMvc.Html
+@using OgretmenlerOdasiProjeDeneme1.Areas.Admin.Models.ViewModel;
+@model PagedList.IPagedList<OOdasi.Entity.UserInfo>
+@{
+    ViewBag.Title = "Ogretmenlerodasi";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<h2>Öğretmenler Odası</h2>
+<br />
+<div align="center" class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5 align-items-center" style="margin:10px;max-height:420px;background-color:aliceblue;border-radius:15px 15px 15px 15px;border:solid white ">
+            <div class="col-md-3 col-sm-3 col-xs-3 col-lg-3 ">
+                <img src="~/Upload/@item.UserPhoto" width="100" height="125" class="img-circle" align="middle" style="margin-top:35px" />
+            </div>
+            <div class="col-md-9 col-sm-9 col-xs-9 col-lg-9">
+                <table class="table table-hover table-condensed table-striped text-center" style="margin-top:20px">
+                    <tr>
+                        <td><strong>Adı Soyadı : <b style="font-family:'Times New Roman', Times, serif"> @Html.DisplayFor(m => item.UserName) @Html.DisplayFor(t => item.UserLastname)</b></strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Yaşadığı Şehir : <b style="font-family:'Times New Roman', Times, serif"> @Html.DisplayFor(m => item.Sehirler.SehirAdi)</b></strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Üniversitesi : <i style="font-family:'Comic Sans MS'"> @Html.DisplayFor(m => item.UserUniversite)</i></strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bölüm : <i style="font-family:'Comic Sans MS'"> @Html.DisplayFor(m => item.UserBolum)</i></strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Biografisi : <i style="font-family:'Comic Sans MS'"> @Html.DisplayFor(m => item.UserBio)</i></strong></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    }
+</div>
+@*<div class="modal fade" id="iletisim" tabindex="-1" role="dialog" aria-labelledby="">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel">İletişim Bilgileri</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="~/Home/Iletisim" method="get">
+                        @Html.Partial("~/Views/Shared/_Partialiletisim.cshtml")
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+
+<br />
+<div class="col-md-5" style="margin-left:100px">
+    @Html.PagedListPager(Model, page => Url.Action("Index",
+        new { page}))
+</div>

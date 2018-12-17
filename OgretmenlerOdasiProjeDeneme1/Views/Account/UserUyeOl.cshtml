@@ -1,0 +1,262 @@
+﻿@using OgretmenlerOdasiProjeDeneme1.Areas.Admin.Models.ViewModel
+@using OOdasi.Entity;
+@model UserViewModel
+@{
+    ViewBag.Title = "UserUyeOl";
+    Layout = "~/Views/Shared/_LayoutLogOut.cshtml";
+}
+
+<h3 align="center" class="text-danger" >Öğretmen Üyelik sayfası</h3>
+
+@using (Html.BeginForm("UserUyeOl", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <div>
+            <label>@ViewBag.Mesaj</label>
+        </div>
+        <table class="table table-striped table-hover table-condensed table-responsive table-bordered">
+            <tr>
+                <td>Adınız : </td>
+                <td>@Html.TextBoxFor(t => t.Userlar.UserName, new { @class = "form-control", @style = "width:200px", required = "required" })</td>
+            </tr>
+            <tr>
+                <td>Soyadınız : </td>
+                <td>@Html.TextBoxFor(t => t.Userlar.UserLastname, new { @class = "form-control", @style = "width:200px", required = "required" })</td>
+            </tr>
+            <tr>
+                <td>Mail Adresiniz : </td>
+                <td>@Html.TextBoxFor(t => t.Userlar.UserMail, new { @class = "form-control", @style = "width:200px", @type = "email" , required = "required" })</td>
+            </tr>
+            <tr>
+                <td>Şifreniz : </td>
+                <td>@Html.PasswordFor(t => t.Userlar.UserPass, new { @class = "form-control", @style = "width:200px", required = "required" })</td>
+            </tr>
+            <tr>
+                <td>Hangi Şehirde Yaşıyorsunuz :</td>
+                <td>@Html.DropDownListFor(t => t.Userlar.UserSehirId, Model.sehirList, new { @class = "form-control", @style = "width:200px" })</td>
+            </tr>
+            <tr>
+                <td>Telefon Numaranız :</td>
+                <td>@Html.TextBoxFor(t => t.Userlar.UserPhone,  new { @class = "form-control", @style = "width:200px", required = "required", @type="number" })</td>
+            </tr>
+            <tr>
+                <td>Doğum Tarihiniz : </td>
+                <td>@Html.TextBoxFor(t => t.Userlar.UserAge, new { @class = "form-control", @style = "width:200px", @type = "date", required = "required" })</td>
+            </tr>
+            <tr>
+                <td>Mevzun Olduğunuz Lise : </td>
+                <td>@Html.TextBoxFor(t => t.Userlar.UserLise, new { @class = "form-control", @style = "width:200px", required = "required" })</td>
+            </tr>
+            <tr>
+                <td>Üniversiteniz : </td>
+                <td>@Html.TextBoxFor(t => t.Userlar.UserUniversite, new { @class = "form-control", @style = "width:200px", required = "required" })</td>
+            </tr>
+            <tr>
+                <td>Universitede Okuduğunuz Bölüm : </td>
+                <td>@Html.TextBoxFor(t => t.Userlar.UserBolum, new { @class = "form-control", @style = "width:200px", required = "required" })</td>
+            </tr>
+            <tr>
+                <td>Lütfen kendinizden ve ilgi alanlarınızdan bahsedin : </td>
+                <td>@Html.TextAreaFor(t => t.Userlar.UserBio, new { @class = "form-control", @style = "width:200px", @required = "required" })</td>
+                <div>
+                    @ViewBag.mes
+                </div>
+            </tr>
+            <tr>
+                <td>Fotoğrafınız : </td>
+                <td><input type="file" name="photo" id="photo" required /></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="Kaydet" class="btn btn-success" />
+                </td>
+            </tr>
+        </table>
+    }
+
+
+@*@using (Html.BeginForm("UserUyeOl", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div style="background-color:#7edfff" >
+        <div >
+            <form class="login100-form validate-form" >
+                <div class="wrap-input100 validate-input" data-validate="Lütfen Adınızı Giriniz">
+                    <input class="input100" type="text" id="Userlar.UserName" name="Userlar.UserName" required="required">
+                    <span class="focus-input100" data-placeholder="Adınız : "></span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Lütfen Soyadınızı Giriniz">
+                    <input class="input100" type="text" id="Userlar.UserLastname" name="Userlar.UserLastname" required="required">
+                    <span class="focus-input100" data-placeholder="Soyadınız : "></span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Email adresinizi giriniz : a@b.c">
+                    <input class="input100" type="text" id="Userlar.UserMail" name="Userlar.UserMail" required="required">
+                    <span class="focus-input100" data-placeholder="Email Adresiniz : "></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Enter password">
+                    <span class="btn-show-pass">
+                        <i class="zmdi zmdi-eye"></i>
+                    </span>
+                    <input class="input100" type="password" id="Userlar.UserPass" name="Userlar.UserPass" required="required">
+                    <span class="focus-input100" data-placeholder="Şifreniz : "></span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Lütfen şehir seçiniz"><br /><br />
+                    <select class="form-control list-group-item-info" data-val="true" data-val-number="The field UserSehirId must be a number." id="Userlar_UserSehirId" name="Userlar.UserSehirId" style="width:200px">
+                        <option value="1">Adana</option>
+                        <option value="2">Adıyaman</option>
+                        <option value="3">Afyon</option>
+                        <option value="4">Ağrı</option>
+                        <option value="5">Amasya</option>
+                        <option value="6">Ankara</option>
+                        <option value="7">Antalya</option>
+                        <option value="8">Artvin</option>
+                        <option value="9">Aydın</option>
+                        <option value="10">Balıkesir</option>
+                        <option value="11">Bilecik</option>
+                        <option value="12">Bing&#246;l</option>
+                        <option value="13">Bitlis</option>
+                        <option value="14">Bolu</option>
+                        <option value="15">Burdur</option>
+                        <option value="16">Bursa</option>
+                        <option value="17">&#199;anakkale</option>
+                        <option value="18">&#199;ankırı</option>
+                        <option value="19">&#199;orum</option>
+                        <option value="20">Denizli</option>
+                        <option value="21">Diyarbakır</option>
+                        <option value="22">Edirne</option>
+                        <option value="23">Elazığ</option>
+                        <option value="24">Erzincan</option>
+                        <option value="25">Erzurum</option>
+                        <option value="26">Eskişehir</option>
+                        <option value="27">Gaziantep</option>
+                        <option value="28">Giresun</option>
+                        <option value="29">G&#252;m&#252;şhane</option>
+                        <option value="30">Hakkari</option>
+                        <option value="31">Hatay</option>
+                        <option value="32">Isparta</option>
+                        <option value="33">İ&#231;el</option>
+                        <option value="34">İstanbul - Asya</option>
+                        <option value="35">İstanbul - Avrupa</option>
+                        <option value="36">İzmir</option>
+                        <option value="37">Kars</option>
+                        <option value="38">Kastamonu</option>
+                        <option value="39">Kayseri</option>
+                        <option value="40">Kırklareli</option>
+                        <option value="41">Kırşehir</option>
+                        <option value="42">Kocaeli</option>
+                        <option value="43">Konya</option>
+                        <option value="44">K&#252;tahya</option>
+                        <option value="45">Malatya</option>
+                        <option value="46">Manisa</option>
+                        <option value="47">Kahramanmaraş</option>
+                        <option value="48">Mardin</option>
+                        <option value="49">Muğla</option>
+                        <option value="50">Muş</option>
+                        <option value="51">Nevşehir</option>
+                        <option value="52">Niğde</option>
+                        <option value="53">Ordu</option>
+                        <option value="54">Rize</option>
+                        <option value="55">Sakarya</option>
+                        <option value="56">Samsun</option>
+                        <option value="57">Siirt</option>
+                        <option value="58">Sinop</option>
+                        <option value="59">Sivas</option>
+                        <option value="60">Tekirdağ</option>
+                        <option value="61">Tokat</option>
+                        <option value="62">Trabzon</option>
+                        <option value="63">Tunceli</option>
+                        <option value="64">Şanlıurfa</option>
+                        <option value="65">Uşak</option>
+                        <option value="66">Van</option>
+                        <option value="67">Yozgat</option>
+                        <option value="68">Zonguldak</option>
+                        <option value="69">Aksaray</option>
+                        <option value="70">Bayburt</option>
+                        <option value="71">Karaman</option>
+                        <option value="72">Kırıkkale</option>
+                        <option value="73">Batman</option>
+                        <option value="74">Şırnak</option>
+                        <option value="75">Bartın</option>
+                        <option value="76">Ardahan</option>
+                        <option value="77">Iğdır</option>
+                        <option value="78">Yalova</option>
+                        <option value="79">Karab&#252;k</option>
+                        <option value="80">Kilis</option>
+                        <option value="81">Osmaniye</option>
+                        <option value="82">D&#252;zce</option>
+                        <option value="83">Kuzey Kıbrıs</option>
+                        <option value="86"></option>
+                    </select>
+                    <span class="focus-input100" data-placeholder="Lütfen Şehrinizi Seçin : "></span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Doğum Tarihinizi Giriniz : a@b.c">
+                    <br /><br />
+                    <input class="form-control" data-val="true" data-val-date="The field UserAge must be a date." id="Userlar_UserAge" name="Userlar.UserAge" style="width:200px" type="date" value="" required="required" />
+                    <span class="focus-input100" data-placeholder="Doğum Tarihiniz : "></span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Telefon numaranızı giriniz">
+                    <input class="input100" type="number" id="Userlar.UserPhone" name="Userlar.UserPhone" required="required">
+                    <span class="focus-input100" data-placeholder="Telefon numaranız : "></span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Lisenizi girin">
+                    <input class="input100" type="text" id="Userlar.UserLise" name="Userlar.UserLise" required="required">
+                    <span class="focus-input100" data-placeholder="Mevzun olduğunuz lise : "></span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Üniversitenizi girin">
+                    <br />
+                    <input class="input100" type="text" id="Userlar.UserUniversite" name="Userlar.UserUniversite" required="required">
+                    <span class="focus-input100" data-placeholder="Mevzun olduğunuz ya da okumakta olduğunuz Üniversite  : "></span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Bölümünüzü girin">
+                    <input class="input100" type="text" id="Userlar.UserBolum" name="Userlar.UserBolum" required="required">
+                    <span class="focus-input100" data-placeholder="Üniversitede okuduğunuz bölüm  : "></span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Bio'nuzu girin">
+                    <br /><br /><br />
+                    <textarea class="form-control" style="background-color:azure" cols="20" id="Userlar_UserBio" name="Userlar.UserBio" required="required" rows="2" style="width:200px">
+</textarea>
+                    <span class="focus-input100" data-placeholder="Lütfen kendinizden ve ilgi alanlarınızdan bahsedin : "></span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate="Fotoğrağ seçiniz">
+                    <br /><br />
+                    <input type="file" name="photo" id="photo" required />
+                    <span class="focus-input100" data-placeholder="Fotoğrafınız  : "></span>
+                </div>
+
+
+
+                <div class="container-login100-form-btn">
+                    <div class="wrap-login100-form-btn">
+                        <div class="login100-form-bgbtn"></div>
+                        <button class="login100-form-btn" type="submit">
+                            Kaydet
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <div id="dropDownSelect1"></div>
+
+    <!--===============================================================================================-->
+    <script src="~/Content/Login_v2/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/Login_v2/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/Login_v2/vendor/bootstrap/js/popper.js"></script>
+    @*<script src="~/Content/Login_v2/vendor/bootstrap/js/bootstrap.min.js"></script>*@
+    <!--===============================================================================================-->
+    @*<script src="~/Content/Login_v2/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/Login_v2/vendor/daterangepicker/moment.min.js"></script>
+    <script src="~/Content/Login_v2/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/Login_v2/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/Login_v2/js/main.js"></script>
+}*@

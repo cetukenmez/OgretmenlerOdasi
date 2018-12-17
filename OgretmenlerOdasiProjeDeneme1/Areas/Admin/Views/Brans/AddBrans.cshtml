@@ -1,0 +1,27 @@
+﻿@using OOdasi.Entity
+@model Branslar
+@{
+    ViewBag.Title = "AddBrans";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>AddBrans</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken();
+    <div>
+        <label>@ViewBag.Mesaj</label>
+    </div>
+    <table class="table table-striped">
+        <tr>
+            <td>@Html.DisplayNameFor(t => t.BransAdi)</td>
+            <td>@Html.EditorFor(t => t.BransAdi)</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Save" />
+            </td>
+        </tr>
+    </table>
+}

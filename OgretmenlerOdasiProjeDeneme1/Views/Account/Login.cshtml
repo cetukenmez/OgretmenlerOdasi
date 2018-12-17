@@ -1,0 +1,81 @@
+﻿@using OgretmenlerOdasiProjeDeneme1.Models.VM;
+@model LoginVM
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutLogOut.cshtml";
+}
+<!--===============================================================================================-->
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div align="center" style="margin-top:30px">
+        <div class="wrap-login100" style="border:solid white">
+            <form class="login100-form validate-form ">
+                <span class="login100-form-title p-b-26">
+                    Hoşgeldiniz
+                </span>
+                <div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
+                    <input class="input100" type="text" id="Email" name="Email">
+                    <span class="focus-input100" data-placeholder="Email Adresiniz"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Enter password">
+                    <span class="btn-show-pass">
+                        <i class="zmdi zmdi-eye"></i>
+                    </span>
+                    <input class="input100" type="password" id="Password" name="Password">
+                    <span class="focus-input100" data-placeholder="Şifre"></span>
+                </div>
+
+                <div class="container-login100-form-btn">
+                    <div class="wrap-login100-form-btn">
+                        <div class="login100-form-bgbtn"></div>
+                        <button class="login100-form-btn" type="submit">
+                            Giriş
+                        </button>
+                    </div>
+                </div>
+                <div class="text-center p-t-115" style="margin-bottom:25px">
+                        <span class="txt1">
+                            Henüz bir hesabınız yok mu ?&nbsp;
+                        </span>
+                    <span class="dropdown">
+                        <a href="#" class="dropdown-toggle text-white" data-toggle="dropdown"><i class="fa fa-user"></i> Üye Ol <b class="caret"></b></a>
+                        <ul class="dropdown-menu" style="width:150px;margin-left:-50px">
+                            <li>
+                                <a href="/Account/UserUyeOl"><i class="fa fa-fw fa-book"></i><strong> Öğretmen Üyeliği</strong></a>
+                            </li>
+                            <li>
+                                <a href="/Account/UserUyeOlogrenci" class="text-dark"><i class="fa fa-fw fa-pencil"></i><strong> Öğrenci Üyeliği</strong></a>
+                            </li>
+                        </ul>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <div id="dropDownSelect1"></div>
+
+    <!--===============================================================================================-->
+    <script src="~/Content/Login_v2/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/Login_v2/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/Login_v2/vendor/bootstrap/js/popper.js"></script>
+    @*<script src="~/Content/Login_v2/vendor/bootstrap/js/bootstrap.min.js"></script>*@
+    <!--===============================================================================================-->
+    <script src="~/Content/Login_v2/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/Login_v2/vendor/daterangepicker/moment.min.js"></script>
+    <script src="~/Content/Login_v2/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/Login_v2/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/Login_v2/js/main.js"></script>
+}
+

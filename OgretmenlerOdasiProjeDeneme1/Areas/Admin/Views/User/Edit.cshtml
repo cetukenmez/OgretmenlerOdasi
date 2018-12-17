@@ -1,0 +1,47 @@
+﻿@using OOdasi.Entity
+@model  UserInfo
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(t => t.UserId)
+    <div>
+        <label>@ViewBag.Mesaj</label>
+    </div>
+    <table class=" table table-striped">
+        <tr>
+            <td>@Html.DisplayNameFor(t => t.UserName)</td>
+            <td>@Html.EditorFor(t => t.UserName)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(t => t.UserLastname)</td>
+            <td>@Html.EditorFor(t => t.UserLastname)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(t => t.UserMail)</td>
+            <td>@Html.EditorFor(t => t.UserMail)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(t => t.RoleId)</td>
+            <td>@Html.EditorFor(t => t.RoleId)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(t => t.UserSehirId)</td>
+            <td>@Html.EditorFor(t => t.UserSehirId)</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(t => t.UserUyeDate)</td>
+            <td>@Html.EditorFor(t => t.UserUyeDate)</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Update" class="btn btn-success" />
+            </td>
+        </tr>
+    </table>
+}
